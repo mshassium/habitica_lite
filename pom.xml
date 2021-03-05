@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ru.mshassium.habitica_lite</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>habitica_lite_backend</artifactId>
     <version>0.0.1</version>
     <name>Habitica Lite</name>
     <description>Demo project for Spring Boot</description>
