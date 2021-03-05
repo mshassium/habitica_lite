@@ -18,11 +18,11 @@ public class WakeUpService {
     private final Logger log = LoggerFactory.getLogger(WakeUpService.class);
 
     @Scheduled(fixedDelay = 180000)
-    private void wakeUpNeo() throws UnknownHostException {
+    private void wakeUpNeo() {
         log.debug("DEBUUUG!");
         log.debug("Wake Up Neo");
         RestTemplate restTemplate = new RestTemplate();
-        String hostAddress = InetAddress.getLocalHost().getHostName();
+        String hostAddress = InetAddress.getLoopbackAddress().getHostAddress();
         String fooResourceUrl
                 = hostAddress+"/actuator/health";
         log.debug("Url: "+ fooResourceUrl);
