@@ -23,8 +23,7 @@ public class WakeUpService {
         log.debug("Wake Up Neo");
         RestTemplate restTemplate = new RestTemplate();
         String hostAddress = InetAddress.getLoopbackAddress().getHostAddress();
-        String fooResourceUrl
-                = hostAddress+"/actuator/health";
+        String fooResourceUrl = "https://habitica-lite-backend.herokuapp.com/actuator/health";
         log.debug("Url: "+ fooResourceUrl);
         ResponseEntity<String> response
                 = restTemplate.getForEntity(fooResourceUrl + "/1", String.class);
