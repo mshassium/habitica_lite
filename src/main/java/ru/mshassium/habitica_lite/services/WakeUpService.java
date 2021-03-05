@@ -26,7 +26,7 @@ public class WakeUpService {
         String fooResourceUrl = "https://habitica-lite-backend.herokuapp.com/actuator/health";
         log.debug("Url: "+ fooResourceUrl);
         ResponseEntity<String> response
-                = restTemplate.getForEntity(fooResourceUrl + "/1", String.class);
+                = restTemplate.getForEntity(fooResourceUrl, String.class);
         log.debug("Status Code is: " + response.getStatusCode());
     }
 
