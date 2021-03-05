@@ -1,5 +1,7 @@
 package ru.mshassium.habitica_lite.services;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -13,18 +15,20 @@ import java.net.UnknownHostException;
 @EnableScheduling
 public class WakeUpService {
 
+    private final Logger log = LoggerFactory.getLogger(WakeUpService.class);
 
     @Scheduled(fixedDelay = 180000)
     private void wakeUpNeo() throws UnknownHostException {
-        System.out.println("Wake Up Neo");
+        log.debug("DEBUUUG!");
+        log.debug("Wake Up Neo");
         RestTemplate restTemplate = new RestTemplate();
         String hostAddress = InetAddress.getLocalHost().getHostName();
         String fooResourceUrl
                 = hostAddress+"/actuator/health";
-        System.out.println("Url: "+ fooResourceUrl);
+        log.debug("Url: "+ fooResourceUrl);
         ResponseEntity<String> response
                 = restTemplate.getForEntity(fooResourceUrl + "/1", String.class);
-        System.out.println("Status Code is: " + response.getStatusCode());
+        log.debug("Status Code is: " + response.getStatusCode());
     }
 
 }
